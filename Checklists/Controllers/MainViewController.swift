@@ -10,10 +10,11 @@ import UIKit
 class MainViewController: UITableViewController {
 
     let groups:[CheckListGroup] = [
-        CheckListGroup (title: "Birthdays", imageName: "Birthdays"),
-        CheckListGroup(title: "Groceries", imageName: "Groceries"),
-        CheckListGroup(title: "To do", imageName: "Inbox"),
-        CheckListGroup(title: "Chores", imageName: "Chores")
+        CheckListGroup (title: "Birthdays", imageName: "Birthdays", items:[ChecklistItem(isChecked: true, name: "birtyhday ")
+            ]),
+        CheckListGroup(title: "Groceries", imageName: "Groceries",items:[ChecklistItem(isChecked: true, name: "ruurtr")]),
+        CheckListGroup(title: "To do", imageName: "Inbox", items:[ChecklistItem(isChecked: true, name: "cjfgjdd")]),
+        CheckListGroup(title: "Chores", imageName: "Chores", items:[ChecklistItem(isChecked: true, name: "ddrr")])
     ]
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -32,6 +33,21 @@ class MainViewController: UITableViewController {
         return cell
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "MainToGroupDiteils"{
+//            print("Передаем информацию")
+//            if let vc = segue.destination as? GroupDitelsTableViewController{
+//                if let indexPath = tableView.indexPathForSelectedRow{
+//                    vc.items = groups [indexPath.row].items
+//            }
+//        }
+//    }
+//}
+        if segue.identifier == "MainToGroupDetails",
+            let vc = segue.destination as? GroupDitelsTableViewController,
+            let indexPath = tableView.indexPathForSelectedRow{
+            vc.title = groups[indexPath.row].title
+            vc.items = groups [indexPath.row].items
+        }
+        }
 }
-

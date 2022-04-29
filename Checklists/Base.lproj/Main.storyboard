@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Group Ditels Table View Controller-->
+        <!--Birthdays-->
         <scene sceneID="UgD-tj-htJ">
             <objects>
                 <tableViewController id="iY0-Vg-nqn" customClass="GroupDitelsTableViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,23 +23,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Walk the dog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8G-GY-0Qc">
-                                            <rect key="frame" x="85" y="5" width="100" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walk the dog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8G-GY-0Qc">
+                                            <rect key="frame" x="50.5" y="20" width="100" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2ap-gH-qIx">
-                                            <rect key="frame" x="36" y="-2" width="31" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2ap-gH-qIx">
+                                            <rect key="frame" x="16" y="10" width="18.5" height="33.5"/>
                                             <color key="tintColor" red="0.14137613160000001" green="0.77696598790000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="2ap-gH-qIx" secondAttribute="bottom" constant="8" id="4Og-UC-H8B"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="o8G-GY-0Qc" secondAttribute="bottom" constant="8" id="Qvj-K4-Zep"/>
+                                        <constraint firstItem="o8G-GY-0Qc" firstAttribute="leading" secondItem="2ap-gH-qIx" secondAttribute="trailing" constant="16" id="TLk-0N-hc4"/>
+                                        <constraint firstItem="2ap-gH-qIx" firstAttribute="top" secondItem="zMQ-Kg-eBH" secondAttribute="top" constant="8" id="UjG-GR-dPV"/>
+                                        <constraint firstItem="o8G-GY-0Qc" firstAttribute="top" secondItem="zMQ-Kg-eBH" secondAttribute="top" constant="20" symbolic="YES" id="g07-dE-T2U"/>
+                                        <constraint firstItem="2ap-gH-qIx" firstAttribute="leading" secondItem="zMQ-Kg-eBH" secondAttribute="leading" constant="16" id="vaR-Ac-Ods"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="checkImageView" destination="2ap-gH-qIx" id="Vek-rT-a6Z"/>
                                     <outlet property="titleLabel" destination="o8G-GY-0Qc" id="RSN-kL-1Gx"/>
+                                    <segue destination="W2Y-55-vgq" kind="show" identifier="GroupDetailsToItamDitails" id="Dgx-Ug-RDu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -48,6 +55,13 @@
                             <outlet property="delegate" destination="iY0-Vg-nqn" id="TGv-V3-j3x"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Birthdays" largeTitleDisplayMode="never" id="Jgy-ag-f3K">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="vRX-1i-nbL">
+                            <connections>
+                                <segue destination="W2Y-55-vgq" kind="show" id="Fbg-ep-he0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yB2-Um-FLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,6 +114,7 @@
                                     <outlet property="iconeView" destination="EfW-dC-Jk3" id="peL-rz-Ns0"/>
                                     <outlet property="subTitleLable" destination="Fz0-kg-kB6" id="8hb-VO-rS4"/>
                                     <outlet property="titleLablel" destination="f5P-sI-zc5" id="rqk-kx-qiH"/>
+                                    <segue destination="iY0-Vg-nqn" kind="show" identifier="MainToGroupDetails" id="uSZ-Kp-ilK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -108,7 +123,11 @@
                             <outlet property="delegate" destination="v4z-u7-6pF" id="SSj-cd-dBa"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="hqS-LM-r1K"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Checklists" largeTitleDisplayMode="always" id="Eqx-hr-adx"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfT-oG-fR8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,6 +215,7 @@
                             <outlet property="delegate" destination="W2Y-55-vgq" id="gFO-0o-TYL"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yMS-j7-2fX"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQi-Ah-lld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,9 +240,13 @@
             <point key="canvasLocation" x="-1030.4347826086957" y="59.598214285714285"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dgx-Ug-RDu"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Birthdays" width="36" height="36"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

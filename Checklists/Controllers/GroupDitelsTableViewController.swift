@@ -11,12 +11,6 @@ import UIKit
 class GroupDitelsTableViewController: UITableViewController {
     
     var items: [ChecklistItem] = [
-        ChecklistItem (isChecked: true, name: "Walk the dog"),
-        ChecklistItem(isChecked: true, name: "Brush teeth"),
-       ChecklistItem(isChecked: false, name: "Learn IOS development"),
-        ChecklistItem(isChecked: false, name: "Score practice"),
-        ChecklistItem(isChecked: false, name: "Dance in the rain"),
-        ChecklistItem(isChecked: true, name: "Eat ice cream"),
     
     ]
 
@@ -97,5 +91,12 @@ class GroupDitelsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GroupDetailsToItamDitails",
+            let vc = segue.destination as? AddItemTableViewController,
+            let indexPath = tableView.indexPathForSelectedRow{
+            vc.item = items[indexPath.row]
+            //vc.item = items [indexPath.row].items
+        }
+        }
 }
