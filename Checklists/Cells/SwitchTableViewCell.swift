@@ -8,8 +8,8 @@
 import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var `switch`: UISwitch!
+    @IBOutlet weak var remindMeSwitch: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +21,7 @@ class SwitchTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func switchDidChange(_ sender: UISwitch) {
+        print("Значение свитча: \(sender.isOn)")
+    }
 }

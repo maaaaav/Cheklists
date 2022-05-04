@@ -162,10 +162,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchCell" id="WZg-8c-MZ3" customClass="SwitchTableViewCell" customModule="Checklists" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="47.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WZg-8c-MZ3" id="mvP-vL-v6U">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remind Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yB0-kS-wua">
@@ -175,18 +175,25 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Yy-oU-XvA">
-                                            <rect key="frame" x="345" y="6" width="49" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Yy-oU-XvA">
+                                            <rect key="frame" x="347" y="8" width="51" height="31.5"/>
+                                            <connections>
+                                                <action selector="switchDidChange:" destination="WZg-8c-MZ3" eventType="valueChanged" id="24U-qB-X5L"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="3Yy-oU-XvA" secondAttribute="bottom" constant="8" id="Ih0-hB-Rcm"/>
+                                        <constraint firstAttribute="trailing" secondItem="3Yy-oU-XvA" secondAttribute="trailing" constant="18" id="ZKz-vT-FE9"/>
+                                        <constraint firstItem="3Yy-oU-XvA" firstAttribute="top" secondItem="mvP-vL-v6U" secondAttribute="top" constant="8" id="llK-Nv-S41"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="switch" destination="3Yy-oU-XvA" id="N7d-rx-CfU"/>
+                                    <outlet property="remindMeSwitch" destination="3Yy-oU-XvA" id="Ut1-qH-2Z9"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" id="qYl-U4-ftU" customClass="DateTableViewCell" customModule="Checklists" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="131.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="135.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qYl-U4-ftU" id="Ibh-tO-1uV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
